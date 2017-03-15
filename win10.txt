@@ -1,0 +1,13 @@
+System memory leak
+--------------- START ----------------
+
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\TimeBroker]
+"Start"=dword:00000003
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\SysMain]
+"DisplayName"="Superfetch"
+"Start"=dword:00000003
+
+---------- END -----------------------
