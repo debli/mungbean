@@ -1,0 +1,39 @@
+node.js
+~~~~~~~~
+~~~~~~~~
+
+mongoskin: promise mongodb client
+
+mocha: unit test tool
+=====================
+
+var expect = require('chai').expect;
+var _storage = require('./storage.js');
+var storage = new _storage(''); 
+var backend = storage.getBackend();
+
+describe('Test storage/mongo.js', function() {
+    it('插入消息', function(done) {
+        expect(backend).to.be.ok;
+
+        backend.pushSingleMsg('test msg', 1, 10, function (ok) { 
+            expect(ok).to.be.ok;
+            done();
+        });
+    });
+
+    it('插入任务', function (done) {
+        backend.pushSingleTask('test msg', 1, 10, function (ok) { 
+            expect(ok).to.be.ok;
+            done();
+        });
+
+    });
+});
+
+gnu guile
+~~~~~~~~~
+
+
+game engine:
+http://atomicgameengine.com/#atomic-resources
