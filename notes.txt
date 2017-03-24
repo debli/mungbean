@@ -37,3 +37,48 @@ gnu guile
 
 game engine:
 http://atomicgameengine.com/#atomic-resources
+
+编辑器
+=======
+
+electron 用js,html,css构建款平台桌面程序
+atom 基于上边的编辑器
+vscode 微软的代码编辑器，基于atom开发，插件：https://marketplace.visualstudio.com/VSCode
+brackets: adobe的web开发工具
+https://github.com/felixfbecker/php-language-server php language server parser and ide server
+
+http://langserver.org/
+eclipse-che
+
+
+neovim with lang-server
+====
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+~/.config/nvim/init.vim
+
+set sw=4
+set background=light
+call plug#begin('~/.vim/plugged')
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
+" (Optional) Multi-entry selection UI.
+Plug 'Shougo/denite.nvim'
+
+" (Optional) Completion integration with deoplete.
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" (Optional) Completion integration with nvim-completion-manager.
+Plug 'roxma/nvim-completion-manager'
+
+" (Optional) Showing function signature and inline doc.
+Plug 'Shougo/echodoc.vim'
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+call plug#end()
+let g:deoplete#enable_at_startup = 1 
+autocmd FileType php LanguageClientStart
+
+
+:PluginInstall
